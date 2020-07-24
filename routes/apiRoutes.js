@@ -11,7 +11,7 @@ router.get("/notes", (req, res) => {
 
 router.post("/notes", (req, res) => {
   ORM
-    .create('notes', ['title', 'text'], req.body)
+    .create('notes', ['title', 'text'], [req.body.title, req.body.text])
     .then((note) => res.json(note))
     .catch((err) => res.status(500).json(err));
 });
